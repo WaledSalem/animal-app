@@ -1,2 +1,6 @@
 flask
 requests
+flask_testing
+pytest 
+pytest-cov 
+Werkzeug==1.0.1
