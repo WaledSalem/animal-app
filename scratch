@@ -1,3 +1,8 @@
+git config --global user.name "WaledSalem"
+git config --global user.email "eng.walied.salem.capw@gmail.com"
+
+git config --global credential.helper
+
 #!/usr/bin/python3
 
 sudo apt install python3-venv
@@ -8,5 +13,16 @@ pip3 install -r requirements.txt
 
 python3 -m pytest --cov app --cov-report term-missing .
 
+sudo apt update
+curl https://get.docker.com | sudo bash
+sudo usermod -aG docker $USER
+newgrp docker
+
+sudo apt install -y curl jq
+version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name')
+sudo curl -L "https://github.com/docker/compose/releases/download/${version}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker rm -f $(docker ps -aq)
 docker network connect my-network service-1
 docker network connect my-network service-1

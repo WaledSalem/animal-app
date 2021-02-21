@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  service-1:
+    container_name: service-1
+    build: ./service-1
+    image: service-1:latest
+    ports:
+    - target: 5000
+      published: 5000
+  service-2:
+    container_name: service-2
+    build: ./service-2
+    image: service-2:latest
+    ports:
+    - target: 5001
+      published: 5001
