@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 @app.route('/animal', methods=['GET'])
 def animal():
-    animals = ["lion", "Dog", "Cat", "Cow"]
+    animals = ["Lion", "Dog", "Cat", "Cow"]
     return Response(random.choices(animals), mimetype="text/plain")
 
 @app.route('/noise', methods=['POST'])
 def noise():
     animal = request.data.decode('utf-8')
-    if animal == "lion":
+    if animal == "Lion":
         noise = "Roar"
     elif animal == "Dog":
         noise = "Woof"
